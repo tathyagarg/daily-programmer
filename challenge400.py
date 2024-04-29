@@ -19,6 +19,16 @@ def practical(num: int) -> bool:
 
     factors = [i for i in range(1, num) if num % i == 0]
 
-    return all(can_be_sum_of(i, factors.copy()) for i in range(1, num))
+    for i in range(1, num):
+        if not can_be_sum_of(i, factors.copy()):
+            return False
 
-print(practical(3))
+    return True
+
+total = 0
+
+for i in range(1, 10_001):
+    if practical(i):
+        total += i
+
+print(total)

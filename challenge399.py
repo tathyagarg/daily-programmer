@@ -88,6 +88,10 @@ def optional5() -> tuple[str, str]:
                     if len(set(word) & set(other_word)) == 0:
                         return word, other_word
 
-
-print(optional5())
+assert lettersum("") == 0
+assert lettersum("a") == 1
+assert lettersum("z") == 26
+assert lettersum("cab") == 6
+assert lettersum("excellent") == 100
+assert lettersum("microspectrophotometries") == 317
 

@@ -25,10 +25,8 @@ def practical(num: int) -> bool:
 
     return True
 
-total = 0
-
-for i in range(1, 10_001):
-    if practical(i):
-        total += i
-
-print(total)
+assert practical(1) == True
+assert practical(2) == True
+assert practical(3) == False
+assert practical(10) == False
+assert practical(12) == True

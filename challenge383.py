@@ -21,6 +21,18 @@ def same_necklace(a: str, b: str) -> bool:
 
     return False
 
+def repeats(text: str) -> int:
+    """
+    """
+    if text == "": return True
+
+    count = 0
+    for i in range(1, len(text)+1):
+        new = text[i:] + text[:i]
+        count += text == new
+
+    return count
+
 assert same_necklace("nicole", "icolen") == True
 assert same_necklace("nicole", "lenico") == True
 assert same_necklace("nicole", "coneli") == False
@@ -33,3 +45,9 @@ assert same_necklace("x", "xx") == False
 assert same_necklace("x", "") == False
 assert same_necklace("", "") == True
 
+assert repeats("abc") == 1
+assert repeats("abcabcabc") == 3
+assert repeats("abcabcabcx") == 1
+assert repeats("aaaaaa") == 6
+assert repeats("a") == 1
+assert repeats("") == 1

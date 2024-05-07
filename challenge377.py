@@ -12,9 +12,25 @@ def fit1(X: int, Y: int, x: int, y: int) -> int:
     """
     return (X // x) * (Y // y)
 
+def fit2(X: int, Y: int, x: int, y: int) -> int:
+    """
+    You upgrade your packing robot with the latest in packing technology: turning stuff.
+    You now have the option of rotating all boxes by 90 degrees, so that you can treat a set of 6-by-5 boxes as a set of 5-by-6 boxes.
+    You do not have the option of rotating some of the boxes but not others.
+    """
+
+    return max((X // x) * (Y // y), (X // y) * (Y // x))
+
 
 assert fit1(25, 18, 6, 5) == 12
 assert fit1(10, 10, 1, 1) == 100
 assert fit1(12, 34, 5, 6) == 10
 assert fit1(12345, 678910, 1112, 1314) == 5676
 assert fit1(5, 100, 6, 1) == 0
+
+assert fit2(25, 18, 6, 5) == 15
+assert fit2(12, 34, 5, 6) == 12
+assert fit2(12345, 678910, 1112, 1314) == 5676
+assert fit2(5, 5, 3, 2) == 2
+assert fit2(5, 100, 6, 1) == 80
+assert fit2(5, 5, 6, 1) == 0
